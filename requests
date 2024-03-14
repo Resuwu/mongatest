@@ -1,0 +1,32 @@
+####################### Admin Panel
+Sign up new user POST
+/adminpanel/registration
+
+Delete user DELETE
+/adminpanel/{id}/rem/account
+
+Add permission to user PUT
+/adminpanel/{id}/add/{permission}
+
+Remove permission to user PUT
+/adminpanel/{id}/rem/{permission}
+
+Get list of users with specific permission GET
+/adminpanel/{permission}
+
+####################### User panel
+
+Create new db record POST
+/create
+
+Get full db record list GET
+/clients
+
+Get record by its id GET
+/clients/{id}
+
+Update record PUT
+/clients/{id}
+
+Delete record DELETE
+/clients/{id}

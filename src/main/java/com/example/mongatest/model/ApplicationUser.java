@@ -5,8 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -17,14 +16,18 @@ public class ApplicationUser {
     private String id;
     private Set<String> permissions;
 
-    ApplicationUser(String id) {
-        this.id = id;
+    public ApplicationUser() {
+        permissions = new HashSet<>();
     }
 
-    public boolean addPermission(String permission) {
-
+    public void addPermission(String permission) {
+        permissions.add(permission);
     }
     public boolean removePermission(String permission) {
-
+        if (permissions.contains(permission)) {
+            permissions.remove(permission);
+            return true;
+        }
+        return false;
     }
 }

@@ -7,8 +7,17 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AdminService {
+    void signUpNewUser(ApplicationUser user);
+
+    void removeUser(String userId);
+
     Optional<ApplicationUser> find(String userId);
+
     Boolean permissionCheck(ApplicationUser user, String permission);
-    ApplicationUser permissionUpdate(ApplicationUser user, String permission, Boolean b);
-    List<ApplicationUser> findUsersWithPermission(String permission, Boolean b);
+
+    ApplicationUser addPermission(ApplicationUser user, String permission);
+
+    ApplicationUser removePermission(ApplicationUser user, String permission);
+
+    List<ApplicationUser> findUsersWithPermission(String permission);
 }
